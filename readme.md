@@ -1,6 +1,4 @@
-# Loot Blare 1.1.9
-
-Loot Blare is a World of Warcraft addon originally designed **Turtle WoW**. The original version of this addon can be found [here](https://github.com/MarcelineVQ/LootBlare)
+# Loot Blare 1.3.0
 
 This addon displays a pop-up frame showing items and rolls when a single uncommon+ item is linked in Raid Warning. Rolls are automatically sorted by type to streamline the master looter's workflow.
 
@@ -21,10 +19,11 @@ This addon displays a pop-up frame showing items and rolls when a single uncommo
   - **OS (Off Spec)**: Rolls from 1 to 99.
   - **TM (Transmog)**: Rolls from 1 to 50.
 
-- **Frame Duration**: By default, the frame stays on screen for `15 seconds` unless a new roll occurs. Adjust this duration with:  
+- **Frame Duration**: By default, the frame stays on screen for `15 seconds`. Adjust this duration with:  
   `/lootblare 'time <number>` or `/lb 'time <number>`
 
-  Example: `/lootblare 'time 30` to set the duration to 30 seconds.
+  Example: `/lootblare 'time 30` to set the duration to 30 seconds.  
+  This is also the way the masterlooter sets the roll time. The frame will stay visible for the diuration you set regardless of the masterlooter's set roll time.
 
 Every time the master looter changes, the new master looter announces the roll time defined. This value is also announced after updating the value with `/lb time <number>`. This announced value is applied to the entire raid to ensure consistency.
 
@@ -38,10 +37,18 @@ Every time the master looter changes, the new master looter announces the roll t
 
 ### The (moveable) frame in game:
 
-![LootBlare Frame](./lootblareframe.png)
+![LootBlare Frame](./lootblareframe2.png)
 
 Changelog:
 
+- **1.3.0**: Removed inconsitent ML sharing process, only ML should be linking items in /rw anyway
+- **1.2.0**: Clearer visual indication of what rolls are being done. Separate display and loot timers.
+- **1.1.11**: Various changes
+  - Prevent blare window from closing due to timeout for the Master Looter
+  - Track min and max rolls, highlight minimum rolls which aren't 1 and separate them
+  - Re-ask for masterloot data more often
+  - Use monospaced font for layout consitency
+  - Avoid lua local variable closure limit by moving top level varables to tables
 - **1.1.9**: Add communication using CHAT_MSG_ADDON events
 - **1.1.8**: Remove announce message after each roll. Added time announce message after changing master loot
 - **1.1.7**: Added class colors, autoClose option, and config commands. Only show frame if the sender is the ML. Ignore rolls after the time has elapsed. Get FrameShowDuration from the ML.
@@ -49,3 +56,9 @@ Changelog:
 - **1.1.5**: Added button for SR and roll type order and color.
 - **1.1.4**: Added more buttons for OS and Tmog. Now only registers the first roll of each player.
 - **1.1.3**: Added MainSpec Button for rolling.
+
+___
+Contributors:
+* [Siventt](https://github.com/Siventt/LootBlare)
+* [SeguisDumble](https://github.com/SeguisDumble/LootBlare)
+* [Weird Vibes](https://github.com/MarcelineVQ/LootBlare)
